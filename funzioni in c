@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    char tipo, segno;
+    double a, b, c, x, sol1, sol2;
+    
+    // Acquisizione dei dati
+    printf("Inserisci il tipo di funzione trigonometrica (s/c/t): ");
+    scanf("%c", &tipo);
+    printf("Inserisci il valore di a: ");
+    scanf("%lf", &a);
+    printf("Inserisci il valore di b: ");
+    scanf("%lf", &b);
+    printf("Inserisci il valore di c: ");
+    scanf("%lf", &c);
+    printf("Inserisci il segno della disequazione (<, >, <=, >=): ");
+    scanf(" %c", &segno);
+    
+    // Risoluzione della disequazione
+    switch (tipo) {
+        case 's':
+            // Disequazione per la funzione seno
+            switch (segno) {
+                case '<':
+                    sol1 = asin(-c/b);
+                    sol2 = M_PI - asin(-c/b);
+                    printf("Le soluzioni dell'equazione sono: %.2lf e %.2lf\n", sol1, sol2);
+                    break;
+                case '>':
+                    sol1 = asin(-c/b) + 2*M_PI;
+                    sol2 = -asin(-c/b);
+                    printf("Le soluzioni dell'equazione sono: %.2lf e %.2lf\n", sol1, sol2);
+                    break;
+                case '<=':
+                    sol1 = asin(-c/b);
+                    sol2 = M_PI - asin(-c/b);
+                    printf("Le soluzioni dell'equazione sono: %.2lf e %.2lf\n", sol1, sol2);
+                    break;
+                case '>=':
+                    sol1 = asin(-c/b) + 2*M_PI;
+                    sol2 = -asin(-c/b);
+                    printf("Le soluzioni dell'equazione sono: %.2lf e %.2lf\n", sol1, sol2);
+                    break;
+                default:
+                    printf("Segno non valido!\n");
+                    return 0;
+            }
+            break;
+        case 'c':
+            // Disequazione per la funzione coseno
+            switch (segno) {
+                case '<':
+                    sol1 = acos(-c/b);
+                    sol2 = 2*M_PI - acos(-c/b);
+                    printf("Le soluzioni dell'equazione sono: %.2lf e %.2lf\n", sol1, sol2);
+                    break;
+                case '>':
+                    sol1 = acos(-c/b) + 2*M_PI;
+                    sol2 = -acos(-c/b);
+                    printf("Le soluzioni dell'equazione sono: %.2lf e %.2lf\n", sol1, sol2);
+                    break;
+                case '<=':
+                    sol1 = acos(-c/b);
+                    sol2 = 2*M_PI - acos(-c/b);
+                    printf("Le soluzioni dell'equazione sono: %.2lf e %.2lf\n", sol1, sol2);
+                    break;
+                case '>=':
+                    sol1 = acos(-c/b) + 2*M_PI;
+                    sol2 = -acos(-c/b);
+                    printf("Le soluzioni dell'equazione sono: %.2lf e %.2lf\n", sol1, sol2);
+                    break;
+                default:
+                    printf("Segno non valido
